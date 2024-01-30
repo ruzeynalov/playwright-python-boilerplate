@@ -8,3 +8,6 @@ venv/
 *.pyc
 __pycache__/
 .DS_Store
+
+# Ignore allure results folder
+allure-results/

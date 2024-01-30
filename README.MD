@@ -9,6 +9,7 @@ This tutorial provides a step-by-step guide on using Python and Playwright for W
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Running Tests](#running-tests)
+- [Allure Report](#allure-report)
 - [License](#license)
 
 ## Introduction
@@ -69,6 +70,20 @@ python3 -m pytest tests --browser webkit  --headed --verbose
 
 ```shell
 python3 -m pytest tests --numprocesses auto --browser chromium --browser firefox --browser webkit  --headed --verbose
+```
+
+## Allure Report
+By default test summary will be posted into commandline
+
+In order to generate HTML report using Allure reporting framework run tests with following parameters
+
+```shell
+python3 -m pytest --alluredir=allure-results tests --verbose
+```
+
+And the generate report by running
+```shell
+allure serve -h localhost
 ```
 
 ## License
