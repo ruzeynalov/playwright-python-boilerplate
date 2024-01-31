@@ -11,3 +11,7 @@ __pycache__/
 
 # Ignore allure results folder
 allure-results/
+allure-report/
+
+# Ignore playwright screenshots and video folder
+test-results

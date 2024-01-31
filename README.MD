@@ -6,9 +6,11 @@ This tutorial provides a step-by-step guide on using Python and Playwright for W
 
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
-- [Installation](#installation)
 - [Getting Started](#getting-started)
-- [Running Tests](#running-tests)
+- [Running UI Tests](#running-ui-tests)
+- [Running API Tests](#running-api-tests)
+- [Running All Tests](#running-all-tests)
+- [Debugging Tests](#debugging-tests)
 - [Allure Report](#allure-report)
 - [License](#license)
 
@@ -54,34 +56,62 @@ venv\Scripts\activate.bat
 pip3 install -r requirements.txt
 ```
 
-## Running Tests
+## Running UI Tests
 
-1. Running tests in headless mode Chrome
+1. Running UI tests in headless mode Chrome
 
 ```shell
-python3 -m pytest tests --verbose
+python3 -m pytest -m webtest tests --verbose
 ```
-2. Running tests in headed mode & specific browser(chromium,firefox,webkit)
+2. Running UI tests in headed mode & specific browser(chromium,firefox,webkit)
 
 ```shell
-python3 -m pytest tests --browser webkit  --headed --verbose
+python3 -m pytest -m webtest tests --browser webkit  --headed --verbose
 ```
-3. Running tests in headed mode in all browsers in parallel
+3. Running UI tests in headed mode in all browsers in parallel
 
 ```shell
-python3 -m pytest tests --numprocesses auto --browser chromium --browser firefox --browser webkit  --headed --verbose
+python3 -m pytest -m webtest tests --numprocesses auto --browser chromium --browser firefox --browser webkit  --headed --verbose
+```
+
+## Running API Tests
+
+Running API tests using Playwright
+
+```shell
+python3 -m pytest -m apitest -s tests --screenshot on --verbose
+```
+## Running All Tests
+
+1. Running All tests using Playwright in headless mode
+
+```shell
+python3 -m pytest -s tests --screenshot on --verbose
+```
+
+1. Running All tests using Playwright in headed mode
+```shell
+python3 -m pytest -s tests --screenshot on --verbose --headed
+```
+
+## Debugging Tests
+
+In order to launch Playwright inspector and debug specific tests run following commands
+
+```shell
+PWDEBUG=1 python3 -m pytest -s -k test_basic_duckduckgo_search --verbose
 ```
 
 ## Allure Report
 By default test summary will be posted into commandline
 
-In order to generate HTML report using Allure reporting framework run tests with following parameters
+In order to generate HTML report using Allure reporting framework run tests with `--alluredir` parameter
 
 ```shell
-python3 -m pytest --alluredir=allure-results tests --verbose
+python3 -m pytest -s --alluredir=allure-results tests --numprocesses auto --browser chromium --browser firefox --browser webkit --screenshot on --video on --headed --verbose
 ```
 
-And the generate report by running
+And the generate and open report in browser by running
 ```shell
 allure serve -h localhost
 ```
