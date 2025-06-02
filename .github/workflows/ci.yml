@@ -27,4 +27,5 @@ jobs:
     - name: Run Playwright tests
       run: |
         playwright install
-        python -m pytest tests --verbose
+        python -m pytest -m apitest -s tests --screenshot on --verbose
+

@@ -32,7 +32,6 @@ Before getting started, make sure you have the following prerequisites installed
     pip install virtualenv
 ```
 
-
 ## Getting Started
 
 To get started with Python and Playwright, follow these steps:
@@ -62,17 +61,13 @@ playwright install
 
 ## Running UI Tests
 
-1. Running UI tests in headless mode Chrome
 
-```shell
-python3 -m pytest -m webtest tests --verbose
-```
-2. Running UI tests in headed mode & specific browser(chromium,firefox,webkit)
+1. Running UI tests in headed mode & specific browser(chromium,firefox,webkit)
 
 ```shell
 python3 -m pytest -m webtest tests --browser webkit  --headed --verbose
 ```
-3. Running UI tests in headed mode in all browsers in parallel
+2. Running UI tests in headed mode in all browsers in parallel
 
 ```shell
 python3 -m pytest -m webtest tests --numprocesses auto --browser chromium --browser firefox --browser webkit  --headed --verbose
@@ -86,12 +81,6 @@ Running API tests using Playwright
 python3 -m pytest -m apitest -s tests --screenshot on --verbose
 ```
 ## Running All Tests
-
-1. Running All tests using Playwright in headless mode
-
-```shell
-python3 -m pytest -s tests --screenshot on --verbose
-```
 
 1. Running All tests using Playwright in headed mode
 ```shell
