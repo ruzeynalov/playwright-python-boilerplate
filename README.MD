@@ -56,6 +56,10 @@ venv\Scripts\activate.bat
 pip3 install -r requirements.txt
 ```
 
+```shell
+playwright install
+```
+
 ## Running UI Tests
 
 1. Running UI tests in headless mode Chrome

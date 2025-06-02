@@ -24,10 +24,10 @@ def test_basic_duckduckgo_search(
     )
 
     # When the user searches for a phrase
-    search_page.search('Symphony Solutions')
+    search_page.search('React Native')
 
     # Then the search result query is the phrase
-    expect(result_page.search_input).to_have_value('Symphony Solutions')
+    expect(result_page.search_input).to_have_value('React Native')
 
     # And the search result links pertain to the phrase
     png_bytes = page.screenshot()
@@ -36,7 +36,7 @@ def test_basic_duckduckgo_search(
         name="Search results",
         attachment_type=allure.attachment_type.PNG
     )
-    assert result_page.result_link_titles_contain_phrase('Symphony')
+    assert result_page.result_link_titles_contain_phrase('React Native')
 
     # And the search result title contains the phrase
-    expect(page).to_have_title('Symphony Solutions at DuckDuckGo')
+    expect(page).to_have_title('React Native at DuckDuckGo')
